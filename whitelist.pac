@@ -20,7 +20,7 @@ function FindProxyForURL(url, host)
      *                                                 *
      * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-    var ip_address = '172.16.66.77:3000';
+    var ip_address = '127.0.0.1:1155';
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * 
      *                                                 *
@@ -28,7 +28,7 @@ function FindProxyForURL(url, host)
      * Proxy type                                      *
      *                                                 *
      * * * * * * * * * * * * * * * * * * * * * * * * * */
-    var proxy_type = 'HTTPS'; // or 'SOCKS' 
+    var proxy_type = 'SOCKS'; // or 'SOCKS' 
 
     // HTTPS 是用于 Chrome 的安全代理
     // http://www.chromium.org/developers/design-documents/secure-web-proxy
@@ -75,6 +75,157 @@ function FindProxyForURL(url, host)
 
     // custom list. feel free to add.
     // mostly ad servers and img servers
+    if(
+        dnsDomainIs(host,"google.com") || shExpMatch(host, "*.google.com") || 
+        dnsDomainIs(host,"google.com.hk") || shExpMatch(host, "*.google.com.hk") || 
+        dnsDomainIs(host,"mufg.jp") || shExpMatch(host, "*.mufg.jp") || 
+        dnsDomainIs(host,"wikipedia.org") || shExpMatch(host, "*.wikipedia.org") || 
+        dnsDomainIs(host,"wikimedia.org") || shExpMatch(host, "*.wikimedia.org") || 
+        dnsDomainIs(host,"acm.org") || shExpMatch(host, "*.acm.org") || 
+        dnsDomainIs(host,"sigir.org") || shExpMatch(host, "*.sigir.org") || 
+        dnsDomainIs(host,"bing.com") || shExpMatch(host, "*.bing.com") || 
+        dnsDomainIs(host,"yahoo.com") || shExpMatch(host, "*.yahoo.com") || 
+        dnsDomainIs(host,"hotmail.com") || shExpMatch(host, "*.hotmail.com") || 
+        dnsDomainIs(host,"msn.com") || shExpMatch(host, "*.msn.com") || 
+        dnsDomainIs(host,"alexa.com") || shExpMatch(host, "*.alexa.com") || 
+        dnsDomainIs(host,"google.co.jp") || shExpMatch(host, "*.google.co.jp") || 
+        dnsDomainIs(host,"yahoo.co.jp") || shExpMatch(host, "*.yahoo.co.jp") || 
+        dnsDomainIs(host,"ameba.co.jp") || shExpMatch(host, "*.ameba.co.jp") || 
+        dnsDomainIs(host,"gmail.com") || shExpMatch(host, "*.gmail.com") || 
+        dnsDomainIs(host,"evernote.com") || shExpMatch(host, "*.evernote.com") || 
+        dnsDomainIs(host,"dropbox.com") || shExpMatch(host, "*.dropbox.com") || 
+        dnsDomainIs(host,"fumi23.com") || shExpMatch(host, "*.fumi23.com") || 
+        dnsDomainIs(host,"vector.co.jp") || shExpMatch(host, "*.vector.co.jp") || 
+        dnsDomainIs(host,"excite.co.jp") || shExpMatch(host, "*.excite.co.jp") || 
+        dnsDomainIs(host,"justsystems.com") || shExpMatch(host, "*.justsystems.com") || 
+        dnsDomainIs(host,"2ch.net") || shExpMatch(host, "*.2ch.net") || 
+        dnsDomainIs(host,"baidu.jp") || shExpMatch(host, "*.baidu.jp") || 
+        dnsDomainIs(host,"mixi.jp") || shExpMatch(host, "*.mixi.jp") || 
+        dnsDomainIs(host,"e-words.jp") || shExpMatch(host, "*.e-words.jp") || 
+        dnsDomainIs(host,"asahi-net.or.jp") || shExpMatch(host, "*.asahi-net.or.jp") || 
+        dnsDomainIs(host,"wikipedia.org") || shExpMatch(host, "*.wikipedia.org") || 
+        dnsDomainIs(host,"slideshare.net") || shExpMatch(host, "*.slideshare.net") || 
+        dnsDomainIs(host,"scribd.com") || shExpMatch(host, "*.scribd.com") || 
+        dnsDomainIs(host,"impress.co.jp") || shExpMatch(host, "*.impress.co.jp") || 
+        dnsDomainIs(host,"zing.vn") || shExpMatch(host, "*.zing.vn") || 
+        dnsDomainIs(host,"vnexpress.net") || shExpMatch(host, "*.vnexpress.net") || 
+        dnsDomainIs(host,"24h.com.vn") || shExpMatch(host, "*.24h.com.vn") || 
+        dnsDomainIs(host,"vn-zoom.com") || shExpMatch(host, "*.vn-zoom.com") || 
+        dnsDomainIs(host,"tinhte.vn") || shExpMatch(host, "*.tinhte.vn") || 
+        dnsDomainIs(host,"ddth.com") || shExpMatch(host, "*.ddth.com") || 
+        dnsDomainIs(host,"yume.vn") || shExpMatch(host, "*.yume.vn") || 
+        dnsDomainIs(host,"webtretho.com") || shExpMatch(host, "*.webtretho.com") || 
+        dnsDomainIs(host,"baamboo.com") || shExpMatch(host, "*.baamboo.com") || 
+        dnsDomainIs(host,"goonline.vn") || shExpMatch(host, "*.goonline.vn") || 
+        dnsDomainIs(host,"eva.vn") || shExpMatch(host, "*.eva.vn") || 
+        dnsDomainIs(host,"truongton.net") || shExpMatch(host, "*.truongton.net") || 
+        dnsDomainIs(host,"lamchame.com") || shExpMatch(host, "*.lamchame.com") || 
+        dnsDomainIs(host,"tailieu.vn") || shExpMatch(host, "*.tailieu.vn") || 
+        dnsDomainIs(host,"download.com.vn") || shExpMatch(host, "*.download.com.vn") || 
+        dnsDomainIs(host,"bkav.com.vn") || shExpMatch(host, "*.bkav.com.vn") || 
+        dnsDomainIs(host,"nhacso.net") || shExpMatch(host, "*.nhacso.net") || 
+        dnsDomainIs(host,"vietgle.vn") || shExpMatch(host, "*.vietgle.vn") || 
+        dnsDomainIs(host,"unikey.org") || shExpMatch(host, "*.unikey.org") || 
+        dnsDomainIs(host,"my.comscore.com") || shExpMatch(host, "*.my.comscore.com") || 
+        dnsDomainIs(host,"malaysiakini.com") || shExpMatch(host, "*.malaysiakini.com") || 
+        dnsDomainIs(host,"cari.com.my") || shExpMatch(host, "*.cari.com.my") || 
+        dnsDomainIs(host,"lelong.com.my") || shExpMatch(host, "*.lelong.com.my") || 
+        dnsDomainIs(host,"mudah.com.my") || shExpMatch(host, "*.mudah.com.my") || 
+        dnsDomainIs(host,"701panduan.com") || shExpMatch(host, "*.701panduan.com") || 
+        dnsDomainIs(host,"carigold.com") || shExpMatch(host, "*.carigold.com") || 
+        dnsDomainIs(host,"id.openrice.com") || shExpMatch(host, "*.id.openrice.com") || 
+        dnsDomainIs(host,"lycos.com") || shExpMatch(host, "*.lycos.com") || 
+        dnsDomainIs(host,"lowyat.net") || shExpMatch(host, "*.lowyat.net") || 
+        dnsDomainIs(host,"jobstreet.com.my") || shExpMatch(host, "*.jobstreet.com.my") || 
+        dnsDomainIs(host,"themalaysianinsider.com") || shExpMatch(host, "*.themalaysianinsider.com") || 
+        dnsDomainIs(host,"wordpress.org") || shExpMatch(host, "*.wordpress.org") || 
+        dnsDomainIs(host,"lineclear.com") || shExpMatch(host, "*.lineclear.com") || 
+        dnsDomainIs(host,"rapidshare.com") || shExpMatch(host, "*.rapidshare.com") || 
+        dnsDomainIs(host,"4shared.com") || shExpMatch(host, "*.4shared.com") || 
+        dnsDomainIs(host,"ziddu.com") || shExpMatch(host, "*.ziddu.com") || 
+        dnsDomainIs(host,"wikipedia.org") || shExpMatch(host, "*.wikipedia.org") || 
+        dnsDomainIs(host,"hotfile.com") || shExpMatch(host, "*.hotfile.com") || 
+        dnsDomainIs(host,"kaskus.us") || shExpMatch(host, "*.kaskus.us") || 
+        dnsDomainIs(host,"filestube.com") || shExpMatch(host, "*.filestube.com") || 
+        dnsDomainIs(host,"indowebster.com") || shExpMatch(host, "*.indowebster.com") || 
+        dnsDomainIs(host,"stafaband.info") || shExpMatch(host, "*.stafaband.info") || 
+        dnsDomainIs(host,"topshareware.com") || shExpMatch(host, "*.topshareware.com") || 
+        dnsDomainIs(host,"dlitall.com") || shExpMatch(host, "*.dlitall.com") || 
+        dnsDomainIs(host,"flickr.com") || shExpMatch(host, "*.flickr.com") || 
+        dnsDomainIs(host,"imageshack.us") || shExpMatch(host, "*.imageshack.us") || 
+        dnsDomainIs(host,"google.com.tr") || shExpMatch(host, "*.google.com.tr") || 
+        dnsDomainIs(host,"mynet.com") || shExpMatch(host, "*.mynet.com") || 
+        dnsDomainIs(host,"izlesene.com") || shExpMatch(host, "*.izlesene.com") || 
+        dnsDomainIs(host,"gezginler.net") || shExpMatch(host, "*.gezginler.net") || 
+        dnsDomainIs(host,"fizy.com") || shExpMatch(host, "*.fizy.com") || 
+        dnsDomainIs(host,"imageshack.us") || shExpMatch(host, "*.imageshack.us") || 
+        dnsDomainIs(host,"sahibinden.com") || shExpMatch(host, "*.sahibinden.com") || 
+        dnsDomainIs(host,"dailymotion.com") || shExpMatch(host, "*.dailymotion.com") || 
+        dnsDomainIs(host,"diziport.com") || shExpMatch(host, "*.diziport.com") || 
+        dnsDomainIs(host,"timsah.com") || shExpMatch(host, "*.timsah.com") || 
+        dnsDomainIs(host,"milliyet.com.tr") || shExpMatch(host, "*.milliyet.com.tr") || 
+        dnsDomainIs(host,"hurriyet.com.tr") || shExpMatch(host, "*.hurriyet.com.tr") || 
+        dnsDomainIs(host,"ekolay.net") || shExpMatch(host, "*.ekolay.net") || 
+        dnsDomainIs(host,"as7apcool.com") || shExpMatch(host, "*.as7apcool.com") || 
+        dnsDomainIs(host,"wikipedia.org") || shExpMatch(host, "*.wikipedia.org") || 
+        dnsDomainIs(host,"bramjnet.com") || shExpMatch(host, "*.bramjnet.com") || 
+        dnsDomainIs(host,"jsoftj.com") || shExpMatch(host, "*.jsoftj.com") || 
+        dnsDomainIs(host,"tedata.net") || shExpMatch(host, "*.tedata.net") || 
+        dnsDomainIs(host,"vodafone.com.eg") || shExpMatch(host, "*.vodafone.com.eg") || 
+        dnsDomainIs(host,"etisalat.com.eg") || shExpMatch(host, "*.etisalat.com.eg") || 
+        dnsDomainIs(host,"maktoob.yahoo.com") || shExpMatch(host, "*.maktoob.yahoo.com") || 
+        dnsDomainIs(host,"masrawy.com") || shExpMatch(host, "*.masrawy.com") || 
+        dnsDomainIs(host,"elaana.com") || shExpMatch(host, "*.elaana.com") || 
+        dnsDomainIs(host,"arabseyes.com") || shExpMatch(host, "*.arabseyes.com") || 
+        dnsDomainIs(host,"myegy.com") || shExpMatch(host, "*.myegy.com") || 
+        dnsDomainIs(host,"mazika2day.com") || shExpMatch(host, "*.mazika2day.com") || 
+        dnsDomainIs(host,"arabseed.com") || shExpMatch(host, "*.arabseed.com") || 
+        dnsDomainIs(host,"arablionz.com") || shExpMatch(host, "*.arablionz.com") || 
+        dnsDomainIs(host,"mawaly.com") || shExpMatch(host, "*.mawaly.com") || 
+        dnsDomainIs(host,"sm3na.com") || shExpMatch(host, "*.sm3na.com") || 
+        dnsDomainIs(host,"youm7.com") || shExpMatch(host, "*.youm7.com") || 
+        dnsDomainIs(host,"almasry-alyoum.com") || shExpMatch(host, "*.almasry-alyoum.com") || 
+        dnsDomainIs(host,"akhbarak.net") || shExpMatch(host, "*.akhbarak.net") || 
+        dnsDomainIs(host,"ahram.org.eg") || shExpMatch(host, "*.ahram.org.eg") || 
+        dnsDomainIs(host,"shorouknews.com") || shExpMatch(host, "*.shorouknews.com") || 
+        dnsDomainIs(host,"moheet.com") || shExpMatch(host, "*.moheet.com") || 
+        dnsDomainIs(host,"algomhuria.net.eg") || shExpMatch(host, "*.algomhuria.net.eg") || 
+        dnsDomainIs(host,"dostor.org") || shExpMatch(host, "*.dostor.org") || 
+        dnsDomainIs(host,"mawaly.com") || shExpMatch(host, "*.mawaly.com") || 
+        dnsDomainIs(host,"imdb.com") || shExpMatch(host, "*.imdb.com") || 
+        dnsDomainIs(host,"brg8.com") || shExpMatch(host, "*.brg8.com") || 
+        dnsDomainIs(host,"yoo7.com") || shExpMatch(host, "*.yoo7.com") || 
+        dnsDomainIs(host,"sptechs.com") || shExpMatch(host, "*.sptechs.com") || 
+        dnsDomainIs(host,"zamalekfans.com") || shExpMatch(host, "*.zamalekfans.com") || 
+        dnsDomainIs(host,"yallakora.com") || shExpMatch(host, "*.yallakora.com") || 
+        dnsDomainIs(host,"filgoal.com") || shExpMatch(host, "*.filgoal.com") || 
+        dnsDomainIs(host,"kooora.com") || shExpMatch(host, "*.kooora.com") || 
+        dnsDomainIs(host,"bdr130.net") || shExpMatch(host, "*.bdr130.net") || 
+        dnsDomainIs(host,"te3p.com") || shExpMatch(host, "*.te3p.com") || 
+        dnsDomainIs(host,"jeddahbikers.com") || shExpMatch(host, "*.jeddahbikers.com") || 
+        dnsDomainIs(host,"google.com.br") || shExpMatch(host, "*.google.com.br") || 
+        dnsDomainIs(host,"orkut.com.br") || shExpMatch(host, "*.orkut.com.br") || 
+        dnsDomainIs(host,"uol.com.br") || shExpMatch(host, "*.uol.com.br") || 
+        dnsDomainIs(host,"live.com") || shExpMatch(host, "*.live.com") || 
+        dnsDomainIs(host,"globo.com") || shExpMatch(host, "*.globo.com") || 
+        dnsDomainIs(host,"blogspot.com") || shExpMatch(host, "*.blogspot.com") || 
+        dnsDomainIs(host,"terra.com.br") || shExpMatch(host, "*.terra.com.br") || 
+        dnsDomainIs(host,"orkut.com") || shExpMatch(host, "*.orkut.com") || 
+        dnsDomainIs(host,"alexa.com") || shExpMatch(host, "*.alexa.com") || 
+        dnsDomainIs(host,"olat.org") || shExpMatch(host, "*.olat.org") || 
+        dnsDomainIs(host,"hg.olat.org") || shExpMatch(host, "*.hg.olat.org") || 
+        dnsDomainIs(host,"sakaiproject.org") || shExpMatch(host, "*.sakaiproject.org") || 
+        dnsDomainIs(host,"sakaiproject.org") || shExpMatch(host, "*.sakaiproject.org") || 
+        dnsDomainIs(host,"opencastproject.org") || shExpMatch(host, "*.opencastproject.org") || 
+        dnsDomainIs(host,"opencast.jira.com") || shExpMatch(host, "*.opencast.jira.com") || 
+        dnsDomainIs(host,"code.google.com") || shExpMatch(host, "*.code.google.com") || 
+        dnsDomainIs(host,"bigbluebutton.org") || shExpMatch(host, "*.bigbluebutton.org") || 
+        dnsDomainIs(host,"github.com") || shExpMatch(host, "*.github.com") || 
+        dnsDomainIs(host,"googleusercontent.com") || shExpMatch(host, "*.googleusercontent.com") || 
+        dnsDomainIs(host,"php.net") || shExpMatch(host, "*.php.net") 
+    ) {
+        return "PROXY 172.22.18.17:8128";
+    }
     if( shExpMatch(host, "(*\.|)homeinns.com") ||
         shExpMatch(host, "(*\.|)sinajs.com") || 
         shExpMatch(host, "(*\.|)douban.fm")    ||
